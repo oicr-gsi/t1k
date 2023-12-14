@@ -28,6 +28,8 @@
               },
               "type": "EXTERNAL"
             },
+            "t1k.outputFileNamePrefix": "TESTING",
+            "t1k.libraryDesign": "WG",
             "t1k.hlaTyping.inputFastq1": null,
             "t1k.hlaTyping.inputFastq2": null,
             "t1k.hlaTyping.preset": null,
