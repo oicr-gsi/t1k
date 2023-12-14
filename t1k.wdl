@@ -57,7 +57,7 @@ workflow t1k {
   meta {
     author: "Hannah Driver"
     email: "hdriver@oicr.on.ca"
-    description: ""
+    description: "T1K (The ONE genotyper for Kir and HLA) is a computational tool to infer the alleles for the polymorphic genes such as KIR and HLA."
     dependencies: [
       {
         name: "t1k/1.0.2",
