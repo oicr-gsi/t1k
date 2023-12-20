@@ -52,9 +52,9 @@ Output | Type | Description
  
  * Running t1k
  
- === HLA Typing ===.
+ ### HLA Typing
  
- <<<
+ ```
      set -euo pipefail
  
      $T1K_ROOT/run-t1k \
@@ -63,11 +63,11 @@ Output | Type | Description
      --preset PRESET \
      -f REFERENCE_FASTA \
      -o OUTPUT_FILE_NAME
-   >>>
+   ```
  
  
- === KIR Typing ===.
- <<<
+ ### KIR Typing
+ ```
      set -euo pipefail
  
      $T1K_ROOT/run-t1k \
@@ -76,7 +76,7 @@ Output | Type | Description
      --preset kir-wgs \
      -f REFERENCE_FASTA \
      -o OUTPUT_FILE_NAME
-   >>>
+   ```
  ## Support
 
 For support, please file an issue on the [Github project](https://github.com/oicr-gsi) or send an email to gsi@oicr.on.ca .
