@@ -1,0 +1,30 @@
+## Commands
+This section lists command(s) run by the t1k workflow
+
+* Running t1k
+
+### HLA Typing 
+
+```
+    set -euo pipefail
+
+    $T1K_ROOT/run-t1k \
+    -1 INPUT_FASTQ_R1 \
+    -2 INPUT_FASTQ_R2 \
+    --preset PRESET \
+    -f REFERENCE_FASTA \
+    -o OUTPUT_FILE_NAME
+  ```
+
+
+### KIR Typing
+```
+    set -euo pipefail
+
+    $T1K_ROOT/run-t1k \
+    -1 INPUT_FASTQ_R1 \
+    -2 INPUT_FASTQ_R2 \
+    --preset kir-wgs \
+    -f REFERENCE_FASTA \
+    -o OUTPUT_FILE_NAME
+  ```
