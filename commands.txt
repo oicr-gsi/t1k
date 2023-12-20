@@ -3,9 +3,9 @@ This section lists command(s) run by the t1k workflow
 
 * Running t1k
 
-=== HLA Typing ===.
+### HLA Typing 
 
-<<<
+```
     set -euo pipefail
 
     $T1K_ROOT/run-t1k \
@@ -14,11 +14,11 @@ This section lists command(s) run by the t1k workflow
     --preset PRESET \
     -f REFERENCE_FASTA \
     -o OUTPUT_FILE_NAME
-  >>>
+  ```
 
 
-=== KIR Typing ===.
-<<<
+### KIR Typing
+```
     set -euo pipefail
 
     $T1K_ROOT/run-t1k \
@@ -27,4 +27,4 @@ This section lists command(s) run by the t1k workflow
     --preset kir-wgs \
     -f REFERENCE_FASTA \
     -o OUTPUT_FILE_NAME
-  >>>
+  ```
