@@ -1,8 +1,7 @@
 # t1k
 
-T1K (The ONE genotyper for Kir and HLA) is a computational tool to infer the alleles for the polymorphic genes such as KIR and HLA.
-
 ## Overview
+T1K (The ONE genotyper for Kir and HLA) is a computational tool to infer the alleles for the polymorphic genes such as KIR and HLA. T1K calculates the allele abundances based on the RNA-seq/WES/WGS read alignments on the provided allele reference sequences. The abundances are used to pick the true alleles for each gene. T1K provides the post analysis steps, including novel SNP detection and single-cell representation. T1K supports both single-end and paired-end sequencing data with any read length.
 
 ## Dependencies
 
@@ -67,6 +66,8 @@ Output | Type | Description
      -c REFERENCE_COORDINATE_FASTA \
      -o OUTPUT_HLA_CALLS
    ```
+
+ ### KIR Typing
  ```
      set -euo pipefail
  
