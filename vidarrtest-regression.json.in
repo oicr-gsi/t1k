@@ -4,9 +4,9 @@
             "t1k.hlaPreset": null,
             "t1k.hlaReferenceSequence": null,
             "t1k.kirReferenceSequence": null,
-            "t1k.fastqR1": {
+            "t1k.inputBam": {
               "contents": {
-                  "configuration": "/.mounts/labs/gsi/testdata/hlaminer/input_data/SWID_15949654_CRE_0002_Pb_R_PE_409_WG_200124_A00469_0077_BHNGLTDSXX_GAGACGAT-TAACCGGT_L002_001.annotated.subset_R1.fastq.gz",
+                  "configuration": "/.mounts/labs/gsi/testdata/t1k/1.1.0/Test_Data/OCT_011408_Ly_R_WG_OCT_011408-BC_downsampled.filter.deduped.recalibrated.bam",
                   "externalIds": [
                       {
                           "id": "TEST",
@@ -16,19 +16,7 @@
               },
               "type": "EXTERNAL"
             },
-            "t1k.fastqR2": {
-              "contents": {
-                  "configuration": "/.mounts/labs/gsi/testdata/hlaminer/input_data/SWID_15949654_CRE_0002_Pb_R_PE_409_WG_200124_A00469_0077_BHNGLTDSXX_GAGACGAT-TAACCGGT_L002_001.annotated.subset_R2.fastq.gz",
-                  "externalIds": [
-                      {
-                          "id": "TEST",
-                          "provider": "TEST"
-                      }
-                  ]
-              },
-              "type": "EXTERNAL"
-            },
-            "t1k.outputFileNamePrefix": "TESTING",
+            "t1k.outputFileNamePrefix": "OCT_011408_Downsampled",
             "t1k.libraryDesign": "WG",
             "t1k.hlaTyping.inputFastq1": null,
             "t1k.hlaTyping.inputFastq2": null,
@@ -56,7 +44,7 @@
             "t1k.hlaResults": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_t1k_EPT0068_CHR11_DOWNSAMPLED_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_t1k_OCT_011408_DOWNSAMPLED_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -64,7 +52,7 @@
             "t1k.kirResults": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_t1k_EPT0068_CHR11_DOWNSAMPLED_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_t1k_OCT_011408_DOWNSAMPLED_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -74,7 +62,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/t1k/1.0.0/output_metrics/EPT0068_CHR11_DOWNSAMPLED.metrics.txt",
+                "output_metrics": "/.mounts/labs/gsi/testdata/t1k/1.1.0/output_metrics/OCT_011408_Downsampled.metrics.txt",
                 "type": "script"
             }
         ]

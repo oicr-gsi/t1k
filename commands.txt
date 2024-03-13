@@ -9,22 +9,19 @@ This section lists command(s) run by the t1k workflow
     set -euo pipefail
 
     $T1K_ROOT/run-t1k \
-    -1 INPUT_FASTQ_R1 \
-    -2 INPUT_FASTQ_R2 \
+    -b INPUT_BAM \
     --preset PRESET \
-    -f REFERENCE_FASTA \
-    -o OUTPUT_FILE_NAME
+    -f REFERENCE_SEQUENCE_FASTA \
+    -c REFERENCE_COORDINATE_FASTA \
+    -o OUTPUT_HLA_CALLS
   ```
-
-
-### KIR Typing
 ```
     set -euo pipefail
 
     $T1K_ROOT/run-t1k \
-    -1 INPUT_FASTQ_R1 \
-    -2 INPUT_FASTQ_R2 \
+    -b INPUT_BAM \
     --preset kir-wgs \
-    -f REFERENCE_FASTA \
-    -o OUTPUT_FILE_NAME
+    -f REFERENCE_SEQUENCE_FASTA \
+    -c REFERENCE_COORDINATE_FASTA \
+    -o OUTPUT_KIR_CALLS
   ```
