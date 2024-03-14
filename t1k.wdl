@@ -3,20 +3,20 @@ version 1.0
 struct t1kResources {
   String hlaPreset
   String hlaReferenceSequence
+  String hlaReferenceCoord
   String kirReferenceSequence
+  String kirReferenceCoord
 }
 
 workflow t1k {
   input {
-    File fastqR1 
-    File fastqR2
+    File inputBam
     String libraryDesign
     String outputFileNamePrefix
   }
 
   parameter_meta {
-    fastqR1: "Input file with the first mate reads."
-    fastqR2: " Input file with the second mate reads."
+    inputBam: "Input alignment file"
     libraryDesign: "Library type, either 'WG' or 'WT'"
     outputFileNamePrefix: "Output prefix, customizable. Default is the first file's basename."
   }
@@ -25,31 +25,35 @@ workflow t1k {
     "WG": {
       "hlaPreset": "hla-wgs",
       "hlaReferenceSequence": "$T1K_ROOT/hla_dna_seq.fa",
-      "kirReferenceSequence": "$T1K_ROOT/kir_dna_seq.fa"
+      "hlaReferenceCoord": "$T1K_ROOT/hla_dna_coord.fa",
+      "kirReferenceSequence": "$T1K_ROOT/kir_dna_seq.fa",
+      "kirReferenceCoord": "$T1K_ROOT/kir_dna_coord.fa"
     },
     "WT": {
       "hlaPreset": "hla",
       "hlaReferenceSequence": "$T1K_ROOT/hla_rna_seq.fa",
-      "kirReferenceSequence": "$T1K_ROOT/kir_rna_seq.fa"
+      "hlaReferenceCoord": "$T1K_ROOT/hla_rna_coord.fa",
+      "kirReferenceSequence": "$T1K_ROOT/kir_rna_seq.fa",
+      "kirReferenceCoord": "$T1K_ROOT/kir_rna_coord.fa"
     }
   }
 
 
   call hlaTyping {
     input:
-      inputFastq1 = fastqR1,
-      inputFastq2 = fastqR2,
+      inputBam = inputBam,
       preset = resources[libraryDesign].hlaPreset,
       referenceSequence = resources[libraryDesign].hlaReferenceSequence,
+      referenceCoord = resources[libraryDesign].hlaReferenceCoord,
       outputFileNamePrefix = outputFileNamePrefix
   }
 
   if(libraryDesign=="WG") {
     call kirTyping {
       input:
-        inputFastq1 = fastqR1,
-        inputFastq2 = fastqR2,
+        inputBam = inputBam,
         referenceSequence = resources[libraryDesign].kirReferenceSequence,
+        referenceCoord = resources[libraryDesign].kirReferenceCoord,
         outputFileNamePrefix = outputFileNamePrefix
     }
   }
@@ -80,10 +84,10 @@ workflow t1k {
 
 task hlaTyping {
   input {
-    File inputFastq1
-    File inputFastq2
+    File inputBam
     String preset
     String referenceSequence
+    String referenceCoord
     String outputFileNamePrefix
     String modules = "t1k/1.0.2"
     Int jobMemory = 16
@@ -94,18 +98,18 @@ task hlaTyping {
     set -euo pipefail
 
     $T1K_ROOT/run-t1k \
-    -1 ~{inputFastq1} \
-    -2 ~{inputFastq2} \
+    -b ~{inputBam} \
     --preset ~{preset} \
     -f ~{referenceSequence} \
+    -c ~{referenceCoord} \
     -o ~{outputFileNamePrefix}"_t1k_hla"
   >>>
 
   parameter_meta {
-    inputFastq1: "Input fastq with first mate reads"
-    inputFastq2: "Input fastq with second mate reads"
+    inputBam: "Input alignment file"
     preset: "Predefined setting that specifies which analysis to execute"
-    referenceSequence: "Path to the reference fasta file"
+    referenceSequence: "Path to the reference sequence fasta file"
+    referenceCoord: "Path to the reference coordinates fasta file"
     outputFileNamePrefix: "Output prefix for the result file" 
     modules: "Names and versions of required modules"
     jobMemory: "Memory allocated to the task"
@@ -126,9 +130,9 @@ task hlaTyping {
 
 task kirTyping {
   input {
-    File inputFastq1
-    File inputFastq2
+    File inputBam
     String referenceSequence
+    String referenceCoord
     String outputFileNamePrefix
     String modules = "t1k/1.0.2"
     Int jobMemory = 16
@@ -139,17 +143,17 @@ task kirTyping {
     set -euo pipefail
 
     $T1K_ROOT/run-t1k \
-    -1 ~{inputFastq1} \
-    -2 ~{inputFastq2} \
+    -b ~{inputBam} \
     --preset kir-wgs \
     -f ~{referenceSequence} \
+    -c ~{referenceCoord} \
     -o ~{outputFileNamePrefix}"_t1k_kir"
   >>>
 
   parameter_meta {
-    inputFastq1: "Input fastq with first mate reads"
-    inputFastq2: "Input fastq with second mate reads"
-    referenceSequence: "Path to the reference fasta file"
+    inputBam: "Input alignment file"
+    referenceSequence: "Path to the reference sequence fasta file"
+    referenceCoord: "Path to the reference coordinates fasta file"
     outputFileNamePrefix: "Output prefix for the result file"
     modules: "Names and versions of required modules"
     jobMemory: "Memory allocated to the task"
