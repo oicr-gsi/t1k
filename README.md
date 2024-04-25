@@ -21,13 +21,8 @@ java -jar cromwell.jar run t1k.wdl --inputs inputs.json
 Parameter|Value|Description
 ---|---|---
 `inputBam`|File|Input alignment file
-`libraryDesign`|String|Library type, either 'WG' or 'WT'
+`libraryDesign`|String|Library type: 'EX', 'WG', or 'WT'
 `outputFileNamePrefix`|String|Output prefix, customizable. Default is the first file's basename.
-
-
-#### Optional workflow parameters:
-Parameter|Value|Default|Description
----|---|---|---
 
 
 #### Optional task parameters:
@@ -73,7 +68,7 @@ Output | Type | Description
  
      $T1K_ROOT/run-t1k \
      -b INPUT_BAM \
-     --preset kir-wgs \
+     --preset PRESET \
      -f REFERENCE_SEQUENCE_FASTA \
      -c REFERENCE_COORDINATE_FASTA \
      -o OUTPUT_KIR_CALLS
