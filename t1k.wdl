@@ -58,7 +58,7 @@ workflow t1k {
       outputFileNamePrefix = outputFileNamePrefix
   }
 
-  if(libraryDesign=="WG") {
+  if(libraryDesign!="WT") {
     call kirTyping {
       input:
         inputBam = inputBam,
