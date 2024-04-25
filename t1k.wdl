@@ -4,6 +4,7 @@ struct t1kResources {
   String hlaPreset
   String hlaReferenceSequence
   String hlaReferenceCoord
+  String kirPreset
   String kirReferenceSequence
   String kirReferenceCoord
 }
