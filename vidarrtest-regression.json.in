@@ -4,6 +4,7 @@
             "t1k.hlaPreset": null,
             "t1k.hlaReferenceSequence": null,
             "t1k.hlaReferenceCoord": null,
+            "t1k.kirPreset": null,
             "t1k.kirReferenceSequence": null,
             "t1k.kirReferenceCoord": null,
             "t1k.inputBam": {
@@ -29,6 +30,7 @@
             "t1k.hlaTyping.jobMemory": null,
             "t1k.hlaTyping.timeout": null,
             "t1k.kirTyping.inputBam": null,
+            "t1k.kirTyping.preset": null,
             "t1k.kirTyping.referenceSequence": null,
             "t1k.kirTyping.referenceCoord": null,
             "t1k.kirTyping.outputFileNamePrefix": null,
