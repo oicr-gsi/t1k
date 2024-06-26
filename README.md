@@ -38,20 +38,20 @@ Parameter|Value|Default|Description
 
 ### Outputs
 
-Output | Type | Description
----|---|---
-`hlaResults`|File|File with HLA typing results
-`kirResults`|File?|File with KIR typing results
+Output | Type | Description | Labels
+---|---|---|---
+`hlaResults`|File|File with HLA typing results|vidarr_label: hlaResults
+`kirResults`|File?|File with KIR typing results|vidarr_label: kirResults
 
 
 ## Commands
- This section lists command(s) run by the t1k workflow
+This section lists command(s) run by the t1k workflow
  
- * Running t1k
+* Running t1k
  
- ### HLA Typing 
+### HLA Typing 
  
- ```
+```
      set -euo pipefail
  
      $T1K_ROOT/run-t1k \
@@ -60,10 +60,10 @@ Output | Type | Description
      -f REFERENCE_SEQUENCE_FASTA \
      -c REFERENCE_COORDINATE_FASTA \
      -o OUTPUT_HLA_CALLS
-   ```
+```
 
- ### KIR Typing
- ```
+### KIR Typing
+```
      set -euo pipefail
  
      $T1K_ROOT/run-t1k \
@@ -72,9 +72,9 @@ Output | Type | Description
      -f REFERENCE_SEQUENCE_FASTA \
      -c REFERENCE_COORDINATE_FASTA \
      -o OUTPUT_KIR_CALLS
-   ```
+```
 
- ## Support
+## Support
 
 For support, please file an issue on the [Github project](https://github.com/oicr-gsi) or send an email to gsi@oicr.on.ca .
 
