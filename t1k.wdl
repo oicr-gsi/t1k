@@ -81,9 +81,15 @@ workflow t1k {
       }
     ]
     output_meta: {
-      hlaResults: "File with HLA typing results",
-      kirResults: "File with KIR typing results"
+    hlaResults: {
+        description: "File with HLA typing results",
+        vidarr_label: "hlaResults"
+    },
+    kirResults: {
+        description: "File with KIR typing results",
+        vidarr_label: "kirResults"
     }
+}
   }
 
   output {

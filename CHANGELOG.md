@@ -1,3 +1,5 @@
+## 1.3.0 - 2024-06-25
+[GRD-797](https://jira.oicr.on.ca/browse/GRD-797) - add vidarr labels to outputs (changes to medata only)
 ## 1.2.0   - 2024-04-25
  - Update workflow to accept exome library type
 ## 1.1.0   - 2024-03-13
