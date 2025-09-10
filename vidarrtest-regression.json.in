@@ -9,7 +9,7 @@
             "t1k.kirReferenceCoord": null,
             "t1k.inputBam": {
               "contents": {
-                  "configuration": "/.mounts/labs/gsi/testdata/t1k/1.1.0/Test_Data/OCT_011408_Ly_R_WG_OCT_011408-BC_downsampled.filter.deduped.recalibrated.bam",
+                  "configuration": "/.mounts/labs/gsi/testdata/t1k/test_inputs/OCT_Test.filter.deduped.recalibrated.bam",
                   "externalIds": [
                       {
                           "id": "TEST",
@@ -19,7 +19,7 @@
               },
               "type": "EXTERNAL"
             },
-            "t1k.outputFileNamePrefix": "OCT_011408_Downsampled",
+            "t1k.outputFileNamePrefix": "OCT_Downsampled",
             "t1k.libraryDesign": "WG",
             "t1k.hlaTyping.inputBam": null,
             "t1k.hlaTyping.preset": null,
@@ -43,12 +43,12 @@
            "write_to_cache": false,
            "read_from_cache": false
         },
-        "id": "OCT_011408_Downsampled",
+        "id": "OCT_Downsampled",
         "metadata": {
             "t1k.hlaResults": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_t1k_OCT_011408_DOWNSAMPLED_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_t1k_OCT_DOWNSAMPLED_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -56,7 +56,7 @@
             "t1k.kirResults": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_t1k_OCT_011408_DOWNSAMPLED_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_t1k_OCT_DOWNSAMPLED_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -66,7 +66,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/t1k/1.1.0/output_metrics/OCT_011408_Downsampled.metrics.txt",
+                "output_metrics": "/.mounts/labs/gsi/testdata/t1k/1.1.0/output_metrics/workflow_test_01.metrics",
                 "type": "script"
             }
         ]
